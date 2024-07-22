@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5; /* Light background color */
+            color: #333; /* Dark text color */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        h1 {
+            color: #007bff; /* Blue color for the heading */
+            font-size: 28px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        table {
+            width: 80%;
+            max-width: 800px;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            background-color: #ffffff; /* White background for the table */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+            border-radius: 8px; /* Rounded corners */
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+        }
+        th {
+            background-color: #007bff; /* Blue background for table headers */
+            color: #ffffff; /* White text color for headers */
+            font-size: 16px;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2; /* Light grey background for alternate rows */
+        }
+        td {
+            font-size: 14px;
+            color: #555; /* Darker grey text color for table cells */
+        }
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 15px;
+            background-color: #007bff; /* Blue background color for the link */
+            color: #ffffff; /* White text color for the link */
+            border-radius: 5px; /* Rounded corners */
+            text-decoration: none; /* Remove underline */
+            font-size: 16px;
+        }
+        a:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+    </style>
+</head>
+<body>
+    <h1>Results</h1>
+    <table>
+        <tr>
+            <th>Student Name</th>
+            <th>Course Name</th>
+            <th>Course Code</th>
+            <th>Level</th>
+            <th>Date Taken</th>
+            <th>Score</th>
+        </tr>
+        {% for result in results %}
+        <tr>
+            <td>{{ result.student_name }}</td>
+            <td>{{ result.course_name }}</td>
+            <td>{{ result.course_code }}</td>
+            <td>{{ result.level }}</td>
+            <td>{{ result.date_taken }}</td>
+            <td>{{ result.score }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="{{ url_for('select_course') }}">Back to Select Course</a>
+</body>
+</html>

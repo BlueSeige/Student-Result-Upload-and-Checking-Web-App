@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Select Course to Upload</title>
+</head>
+<body>
+    <h1>Select Course to Upload</h1>
+    <form method="POST" action="{{ url_for('select_course_upload') }}">
+        <label for="course_code">Course Code:</label>
+        <input type="text" id="course_code" name="course_code" required>
+        <button type="submit">Select Course</button>
+    </form>
+</body>
+</html>

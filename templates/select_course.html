@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Course</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        h1 {
+            color: #007bff;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        form {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 400px;
+            box-sizing: border-box;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 16px;
+            color: #333;
+        }
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        a {
+            text-decoration: none;
+            color: #007bff;
+            margin-bottom: 20px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <h1>Select Course to View Result</h1>
+    <form action="{{ url_for('select_course') }}" method="post">
+        <label for="level">Level:</label>
+        <select id="level" name="level" required>
+            <option value="100">100L</option>
+            <option value="200">200L</option>
+            <option value="300">300L</option>
+            <option value="400">400L</option>
+        </select>
+        
+        <label for="course_code">Course Code:</label>
+        <select id="course_code" name="course_code" required>
+            {% for course in courses %}
+                <option value="{{ course.course_code }}">{{ course.course_code }} - {{ course.course_name }}</option>
+            {% endfor %}
+        </select>
+
+        <button type="submit">Get Result</button>
+    </form>
+    <br>
+    <a href="{{ url_for('student_logout') }}">Logout</a>
+
+</body>
+</html>

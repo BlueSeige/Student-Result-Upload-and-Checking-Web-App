@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Course</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f4f6; /* Light grey background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #ffffff; /* White background */
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Light shadow */
+            border-radius: 10px; /* Rounded corners */
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 20px;
+            color: #333333; /* Dark grey text */
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        label {
+            text-align: left;
+            color: #555555; /* Medium grey text */
+            margin-bottom: 5px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #dddddd; /* Light grey border */
+            border-radius: 5px; /* Rounded corners */
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+        input[type="text"]:focus {
+            border-color: #007bff; /* Blue border on focus */
+            outline: none;
+        }
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff; /* Blue background */
+            color: #ffffff; /* White text */
+            border: none;
+            border-radius: 5px; /* Rounded corners */
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3; /* Darker blue background on hover */
+        }
+        a {
+            color: #007bff; /* Blue link */
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 15px;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: #0056b3; /* Darker blue on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Add Course</h1>
+        <form method="POST">
+            <label for="course_name">Course Name:</label>
+            <input type="text" id="course_name" name="course_name" required><br>
+            <label for="course_code">Course Code:</label>
+            <input type="text" id="course_code" name="course_code" required><br>
+            <input type="submit" value="Add Course">
+        </form>
+        <a href="{{ url_for('upload_result') }}">Go to Upload Result</a>
+    </div>
+</body>
+</html>

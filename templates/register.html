@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Registration</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f7f9fc; /* Light background color */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #ffffff; /* White background */
+            padding: 20px;
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+            width: 100%;
+            max-width: 600px; /* Wider form for two columns */
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 20px;
+            color: #333333; /* Dark grey text */
+            font-size: 24px; /* Adjusted font size */
+            font-weight: 600; /* Slightly bold */
+        }
+        form {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Two columns layout */
+            gap: 12px; /* Gap between form elements */
+            margin-bottom: 15px;
+            justify-items: center; /* Center align items in the grid */
+        }
+        label {
+            text-align: left;
+            color: #555555; /* Medium grey text */
+            margin-bottom: 5px;
+            font-size: 14px;
+            display: block;
+            width: 100%;
+        }
+        input[type="text"],
+        input[type="password"],
+        select {
+            width: 100%;
+            padding: 10px; /* Reduced padding */
+            border: 1px solid #dddddd; /* Light grey border */
+            border-radius: 5px; /* Rounded corners */
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+        input[type="text"]:focus,
+        input[type="password"]:focus,
+        select:focus {
+            border-color: #007bff; /* Blue border on focus */
+            outline: none;
+        }
+        button[type="submit"] {
+            grid-column: span 2; /* Button spans both columns */
+            padding: 12px;
+            background-color: #007bff; /* Blue background */
+            color: #ffffff; /* White text */
+            border: none;
+            border-radius: 5px; /* Rounded corners */
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button[type="submit"]:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+        p {
+            margin-top: 15px;
+            color: #777777; /* Grey text */
+            font-size: 14px; /* Adjusted font size */
+        }
+        a {
+            color: #007bff; /* Blue link */
+            text-decoration: none;
+            font-weight: 600; /* Slightly bold */
+        }
+        a:hover {
+            color: #0056b3; /* Darker blue on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Student Registration</h1>
+        <form method="POST" action="{{ url_for('register') }}">
+            <div>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <div>
+                <label for="matric_no">Matric No:</label>
+                <input type="text" id="matric_no" name="matric_no" required>
+            </div>
+
+            <div>
+                <label for="department">Department:</label>
+                <select id="department" name="department" required>
+                    <option value="Cyber Security">Cyber Security</option>
+                    <option value="Software Engineering">Software Engineering</option>
+                    <option value="Computer Science">Computer Science</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="level">Level:</label>
+                <select id="level" name="level" required>
+                    <option value="100L">100L</option>
+                    <option value="200L">200L</option>
+                    <option value="300L">300L</option>
+                    <option value="400L">400L</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+
+            <button type="submit">Register</button>
+        </form>
+        <p>Already have an account? <a href="{{ url_for('login') }}">Login</a></p>
+    </div>
+</body>
+</html>
